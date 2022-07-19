@@ -47,6 +47,6 @@ def rossmann_predict():
 
 if __name__ == "__main__":
     # starting flask
-    # port = os.environ.get('PORT', 5000) # Heroku port
-    port = 5000 # local port
+    port = os.environ.get('PORT', 5000) # Heroku port
+    # port = 5000 # local port
     app.run(host='0.0.0.0', port=port)
