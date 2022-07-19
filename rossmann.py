@@ -72,7 +72,7 @@ class Rossmann(object):
         df1.loc[df1['competition_distance'].isna(), 'competition_distance'] = self.constant_competition_distance
 
         # competition_open_since_month
-        # df1['competition_open_since_month'] = df1.apply(lambda x: x['date'].month if np.isnan(x['competition_open_since_month']) else x['competition_open_since_month'], axis=1)
+        df1['competition_open_since_month'] = df1.apply(lambda x: x['date'].month if np.isnan(x['competition_open_since_month']) else x['competition_open_since_month'], axis=1)
 
         # competition_open_since_year
         df1['competition_open_since_year'] = df1.apply(lambda x: x['date'].year if np.isnan(x['competition_open_since_year']) else x['competition_open_since_year'], axis=1)
