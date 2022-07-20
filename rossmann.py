@@ -72,16 +72,16 @@ class Rossmann(object):
         df1.loc[df1['competition_distance'].isna(), 'competition_distance'] = self.constant_competition_distance
 
         # competition_open_since_month
-        df1['competition_open_since_month'] = df1.apply(lambda x: x['date'].month if np.isnan(x['competition_open_since_month']) else x['competition_open_since_month'], axis=1)
+        df1.loc[df1['competition_open_since_month'].isna(), 'competition_open_since_month'] = df1.loc[df1['competition_open_since_month'].isna(), 'date'].dt.month
 
         # competition_open_since_year
-        df1['competition_open_since_year'] = df1.apply(lambda x: x['date'].year if np.isnan(x['competition_open_since_year']) else x['competition_open_since_year'], axis=1)
+        df1.loc[df1['competition_open_since_year'].isna(), 'competition_open_since_year'] = df1.loc[df1['competition_open_since_year'].isna(), 'date'].dt.year
 
         # promo2_since_week
-        df1['promo2_since_week'] = df1.apply(lambda x: x['date'].week if np.isnan(x['promo2_since_week']) else x['promo2_since_week'], axis=1)
+        df1.loc[df1['promo2_since_week'].isna(), 'promo2_since_week'] = df1.loc[df1['promo2_since_week'].isna(), 'date'].dt.week
 
         # promo2_since_year
-        df1['promo2_since_year'] = df1.apply(lambda x: x['date'].year if np.isnan(x['promo2_since_year']) else x['promo2_since_year'], axis=1)
+        df1.loc[df1['promo2_since_year'].isna(), 'promo2_since_year'] = df1.loc[df1['promo2_since_year'].isna(), 'date'].dt.year
 
         # promo_interval
         df1['promo_interval'].fillna(0, inplace=True)
